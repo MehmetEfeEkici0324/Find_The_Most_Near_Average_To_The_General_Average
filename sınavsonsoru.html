@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ortlamaya En Yakın Grup</title>
+</head>
+<body>
+    <!-- 1. Değerleri al 
+         2. ortlamayı bul
+         3. iç içe 3 döngü ile yeni ortalamaları elde et
+         4. ortalama ile bu anlık ortalamaların yakınlıklarını hesapla ve 
+        en yakın olan grubu bir diziye ata, eğer aynı yakınlıkta ise ilk olan grubu diziye ata
+         5. ortalamayı grubun ortalamasını ve grubun değerlerini yazdır-->
+
+
+    <script>
+        var degerler_Dizisi = new Array();
+        var en_Yakin_Dizi = new Array();
+        var ortalama = 0.0;
+        var anlik_Ortalama = 0.0;
+        var temp_Deger = 101;
+        var toplam = 0;
+
+        for(var i=0; i<10; i++){
+            degerler_Dizisi[i] = parseInt(prompt("Lütfen " + (i+1) + ". değeri giriniz : "));
+            toplam += degerler_Dizisi[i];
+        }
+
+        ortalama = (toplam/10);
+
+        for(var k=0; k<10; k++){
+            for(var l=(k+1); l<10; l++){
+                for(var m=(l+1); m<10; m++){
+                    anlik_Ortalama = ( (degerler_Dizisi[k] + degerler_Dizisi[l] + degerler_Dizisi[m])/3 );
+
+
+                    if(ortalama - anlik_Ortalama < 0)
+                {
+                    if( anlik_Ortalama - ortalama <= temp_Deger){ 
+                        if(anlik_Ortalama - ortalama == temp_Deger){
+                            continue;
+                        } else {
+                         en_Yakin_Dizi[0] = degerler_Dizisi[k];
+                         en_Yakin_Dizi[1] = degerler_Dizisi[l];
+                         en_Yakin_Dizi[2] = degerler_Dizisi[m];
+
+                         temp_Deger = ( anlik_Ortalama - ortalama );
+                        }
+                    }
+                } else {
+                    
+                    if( ortalama - anlik_Ortalama <= temp_Deger){ 
+                        if(ortalama - anlik_Ortalama == temp_Deger){
+                            continue;
+                        }
+                         en_Yakin_Dizi[0] = degerler_Dizisi[k];
+                         en_Yakin_Dizi[1] = degerler_Dizisi[l];
+                         en_Yakin_Dizi[2] = degerler_Dizisi[m];
+
+                         temp_Deger = ( ortalama - anlik_Ortalama );
+                }
+                    
+                }
+            }
+        }
+    }
+
+        for(var i=0; i<3; i++){
+            document.write("<br> 1. Öğrencinin notu : " + en_Yakin_Dizi[i]);
+        }
+        document.write("<br> Grubun ortalaması : " + ((en_Yakin_Dizi[0] + en_Yakin_Dizi[1] + en_Yakin_Dizi[2]) / 3 ));
+        document.write("<br> Genel Ortalama : " + ortalama);
+
+
+
+
+    </script>
+    
+</body>
+</html>
