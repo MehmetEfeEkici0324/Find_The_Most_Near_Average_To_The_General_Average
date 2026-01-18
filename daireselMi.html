@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sayi=0, birler=0, count=0, temp=0;
+
+        sayi = parseInt(prompt("1. Satır : "));
+
+        document.writeln(sayi + " -> " + daireselMi(sayi));
+
+        function daireselMi(sayi){
+            
+            temp = sayi;
+            birler = sayi % 10;
+
+            while( temp != 0 ){
+                temp = Math.floor(temp / 10);
+                count++;
+            }
+
+            if( ( Math.floor(sayi/10) + ( birler * (Math.pow(10, (count-1)) ) ) == (birler * sayi) )){
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İntegral Hesap</title>
+</head>
+<body>
+    <script>
+        var satir, sutuna;
+
+        dikdortgenCiz();
+
+        function dikdortgenCiz(){
+            a = Math.floor((Math.random() * 5) + 1);
+            b = Math.floor((Math.random() * 10) + 1);
+
+            for(var i = 0; i < a; i++){
+                for(var j = 0; j < b; j++){
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var tamsayi , saat, dakika;
+
+        for(saat=0; saat<=23; saat++){
+            for(dakika = 0; dakika<=59; dakika++){
+                tamsayi = (saat * 100) + dakika;
+
+                if(((saat*saat) + (dakika*dakika)) == tamsayi){
+                    document.write( saat + "." + dakika + " hocanın gördüğü saattir.")
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
